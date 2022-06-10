@@ -4,19 +4,6 @@ pragma solidity ^0.8.0;
 import "./interfaces/IERC20.sol";
 
 contract TaxToken is IERC20 {
-    address public governor;
-
-    event GovernanceTransferred(
-        address indexed previousGovernor,
-        address indexed newGovernor
-    );
-
-    function transferGovernance(address newGovernor) public onlyGovernor {
-        address oldGovernor = governor;
-        governor = newGovernor;
-        emit GovernanceTransferred(oldGovernor, newGovernor);
-    }
-
     mapping(address => uint256) private _balances;
 
     mapping(address => mapping(address => uint256)) private _allowances;
@@ -26,15 +13,6 @@ contract TaxToken is IERC20 {
     string public constant name = "TaxToken";
     string public constant symbol = "TAX";
     uint8 public constant decimals = 18;
-
-    constructor() {
-        transferGovernance(msg.sender);
-    }
-
-    modifier onlyGovernor() {
-        require(governor == msg.sender, "Governor: caller is not the Governor");
-        _;
-    }
 
     function totalSupply() public view override returns (uint256) {
         return _totalSupply;
