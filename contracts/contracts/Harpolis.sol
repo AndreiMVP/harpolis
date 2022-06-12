@@ -194,6 +194,11 @@ contract Harpolis is NonTransferrableERC20 {
         tokenReserve += _amount;
     }
 
+    function burnTokens(uint256 _amount) public onlyGovernance {
+        totalSupply -= _amount;
+        tokenReserve -= _amount;
+    }
+
     function changeWorthToContributionRatio(uint256 _worthToContributionRatio) public onlyGovernance {
         worthToContributionRatio = _worthToContributionRatio;
     }
