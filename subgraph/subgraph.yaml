@@ -1,0 +1,31 @@
+specVersion: 0.0.4
+description: Harpolis
+repository: https://github.com/AndreiMVP/harpolis
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Harpolis
+    network: arbitrum-rinkeby
+    source:
+      address: "0x016959Aa9B18eE9B9dc4F5B901d9E31Cf9616DfD"
+      abi: Harpolis
+      startBlock: 12929384
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Property
+        - Proposal
+      abis:
+        - name: Harpolis
+          file: ./abis/Harpolis.json
+      eventHandlers:
+        - event: ProposalCreated(address,uint256,uint256,string)
+          handler: handleProposalCreated
+        - event: PropertyMinted(uint256,string)
+          handler: handlePropertyMinted
+        - event: PropertyTransferred(uint256,address,uint256)
+          handler: handlePropertyTransferred
+      file: ./src/mapping.ts

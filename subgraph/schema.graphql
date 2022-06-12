@@ -1,0 +1,13 @@
+type Property @entity {
+  id: ID!
+  owner: Bytes!
+  valuation: BigInt!
+  info: String!
+}
+
+type Proposal @entity {
+  id: ID!
+  creator: Bytes!
+  votingClosingTime: BigInt!
+  description: String!
+}

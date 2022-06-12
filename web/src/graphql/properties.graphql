@@ -1,0 +1,8 @@
+query Properties {
+  properties {
+    id
+    owner
+    valuation
+    info
+  }
+}

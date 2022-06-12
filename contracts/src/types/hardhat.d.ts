@@ -17,13 +17,13 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Harpolis__factory>;
     getContractFactory(
-      name: "QVVoting",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.QVVoting__factory>;
-    getContractFactory(
       name: "IERC20",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC20__factory>;
+    getContractFactory(
+      name: "NonTransferrableERC20",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.NonTransferrableERC20__factory>;
     getContractFactory(
       name: "TaxToken",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -35,15 +35,15 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.Harpolis>;
     getContractAt(
-      name: "QVVoting",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.QVVoting>;
-    getContractAt(
       name: "IERC20",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IERC20>;
+    getContractAt(
+      name: "NonTransferrableERC20",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.NonTransferrableERC20>;
     getContractAt(
       name: "TaxToken",
       address: string,

@@ -1,0 +1,8 @@
+query Proposals {
+  proposals {
+    id
+    creator
+    votingClosingTime
+    description
+  }
+}
